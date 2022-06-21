@@ -23,6 +23,9 @@ const postContent = css`
   padding: 1em;
   margin: auto;
   min-height: 180px;
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 `
 const contentPost = css`
   width: 100%;
@@ -108,7 +111,28 @@ const replyIcon = css`
     color: ${Variable.ModerateBlue};
   }
 `
+const desktopIcon=css`
+  @media (max-width: 768px) {
+   display: none;
+  }
+`
+const mobileIcon=css`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
 
+  }
+`
+const likeBtn=css`
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+`
 function PostCard({content, user, createdAt, score, currentUser, id, replyAble}) {
 
     const [replyComment, setReplyComment] = useState(false)
@@ -155,19 +179,22 @@ function PostCard({content, user, createdAt, score, currentUser, id, replyAble})
             return "2 week ago"
         } else if (convertToDay < 31) {
             return "1 month ago"
-        } else if (NaN) {
+        } else if (!!convertToDay === false) {
             return createdAt
         } else {
             return "Old post"
         }
-
     }
-
 
     return (
         <>
             <div css={postContent}>
-                <Likes score={score} id={id}/>
+                <div css={likeBtn}>
+                    <Likes score={score} id={id}/>
+                    <div css={mobileIcon}>
+                        {iconHandler()}
+                    </div>
+                </div>
                 <div css={contentPost}>
                     <div css={headerPost}>
                         <div>
@@ -175,7 +202,7 @@ function PostCard({content, user, createdAt, score, currentUser, id, replyAble})
                             <span>{user.username}</span>
                             <span>{cratedDate()}</span>
                         </div>
-                        <div>
+                        <div css={desktopIcon}>
                             {iconHandler()}
                         </div>
                     </div>

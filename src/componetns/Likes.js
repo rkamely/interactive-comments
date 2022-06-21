@@ -19,7 +19,12 @@ const likes = css`
   padding: .2em .7em;
   border-radius: ${Variable.BorderRadius};
   margin-right: 1em;
+  @media (max-width: 768px) {
+    flex-direction: row-reverse;
+    height: 40px;
+    width: 100px;
 
+  }
   > span {
     color: ${Variable.ModerateBlue};
     font-weight: 1000;

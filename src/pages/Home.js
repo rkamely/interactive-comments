@@ -16,14 +16,20 @@ const HomeCSS = css`
   justify-content: center;
   align-items: center;
   background-color: ${Variable.VeryLightGray};
-  padding: 5em 5%;
+  padding: 5rem 5%;
   @media (max-width: 768px) {
+    padding: 1rem 3%;
+
   }
 
   > * {
     width: 60%;
     margin: 15px auto;
+    @media (max-width: 768px) {
+      width: 100%;
 
+
+    }
   }
 `
 const replies = css`
@@ -34,6 +40,11 @@ const firstChildReplies=css`
   width: 1px;
   background-color: ${Variable.LightGray};
   margin: 15px 5%;
+  @media (max-width: 768px) {
+    margin: 15px 4%;
+
+
+  }
 `
 const secondChildReplies=css`
   display: flex;
