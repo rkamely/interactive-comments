@@ -7,7 +7,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 function AllRoutes() {
 
     const Home = React.lazy(() =>
-        import('./../Pages/Home'));
+        import('../pages/Home'));
 
 
     return (

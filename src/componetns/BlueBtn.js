@@ -4,7 +4,7 @@
 
 import React from "react";
 import {jsx, css} from '@emotion/react';
-import * as Variable from "../Constants/Variables"
+import * as Variable from "../constants/Variables"
 
 
 

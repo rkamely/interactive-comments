@@ -4,7 +4,9 @@
 
 import React, {useState} from "react";
 import {jsx, css} from '@emotion/react';
-import * as Variable from "../Constants/Variables"
+import * as Variable from "../constants/Variables"
+import {useDispatch} from "react-redux";
+import {like, unLike,} from "../redux/action";
 
 
 const likes = css`
@@ -42,16 +44,20 @@ const likes = css`
 `
 
 
-function Likes() {
-    const [likeCounter, setLikeCounter] = useState(0)
-    const addLikeHandler = () => setLikeCounter(likeCounter + 1)
-    const reduceLikeHandler = () => setLikeCounter(likeCounter - 1)
+function Likes({score, id}) {
 
+    const dispatch = useDispatch()
+    const add = () => {
+        dispatch(like(score, id))
+    }
+    const minus = () => {
+        dispatch(unLike(score, id))
+    }
     return (
         <div css={likes}>
-            <div onClick={addLikeHandler}>+</div>
-            <span>{likeCounter}</span>
-            <div onClick={reduceLikeHandler}>-</div>
+            <div onClick={add}>+</div>
+            <span>{score}</span>
+            <div onClick={minus}>-</div>
         </div>
     )
         ;

@@ -3,8 +3,8 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
 import {Global, css} from '@emotion/react'
-import * as Variable from './Constants/Variables';
-import Routes from "./Routes/AllRoutes";
+import * as Variable from './constants/Variables';
+import Routes from "./routes/AllRoutes";
 
 function App() {
 
@@ -13,7 +13,6 @@ function App() {
         font-family: "Rubik-Medium";
         src: local("Rubik-Medium"), url("Rubik-VariableFont.ttf") format("truetype");
       }
-
       * {
         box-sizing: border-box;
         padding: 0;
@@ -71,6 +70,7 @@ function App() {
       }
     `
     return (
+
         <React.Fragment>
             <Global styles={global}/>
             <Routes/>
